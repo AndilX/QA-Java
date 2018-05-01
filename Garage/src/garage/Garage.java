@@ -1,6 +1,7 @@
 package garage;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Garage {
 	
@@ -12,10 +13,46 @@ public class Garage {
 	        vehicleList = new ArrayList<>();
 	    }
 
+	    public void addVehicle(Vehicle v, String what) {
+	    	
+	    	switch (what) {
+	    	
+		    	case "car"   :	Scanner carInfo = new Scanner(System.in);
+								System.out.println("Enter brand name: ");
+								String carBrand = carInfo.nextLine();
+								System.out.println("Enter model name: ");
+								String carModel = carInfo.nextLine();
+								System.out.println("Enter year: ");
+								int modelYear = carInfo.nextInt();
+								System.out.println("Enter fuel type: ");
+								String carFuel = carInfo.nextLine();
+								
+		    					Car car = new Car(carBrand, carModel , modelYear);
+		    					//car.setFuelType(carFuel);
+		    					this.addToGarage(car);
+		    				  	break;
+		    	case "bike"  :	
+		    					break;
+		    	
+		    	case "truck" :	
+		    					break;
+	    	
+	    	
+	    	}
+	    	
+	    	
+	    	//this.addToGarage(v);
+	    	
+	    }
+	    
+	    
+	    
 	    public void addToGarage(Vehicle v){
 	        v.setID(CurrID);
 	        CurrID++;
 	        vehicleList.add(v);
+	        
+	        // this.garageCommands()
 	    }
 
 	    public void removeFromGaragebyID(int id){
@@ -64,6 +101,7 @@ public class Garage {
 	            System.out.println("Brand: "+v.getBrand());
 	            System.out.println("Model: "+v.getModelName());
 	            System.out.println("Year: "+v.getModelYear());
+	            System.out.println("Fuel type: "+v.getFuelType());
 	            System.out.println();
 	        }
 	    }

@@ -1,5 +1,7 @@
 package garage;
 
+import java.util.Scanner;
+
 public class GarageControls {
 	
 	public static void main (String [] args) {
@@ -7,8 +9,10 @@ public class GarageControls {
         Garage garage = new Garage(id);
         Car car1 = new Car("Smart", "roadster coupe brabus", 2006);
         car1.setNumberOfDoor(2);
+        car1.setFuelType("petrol");
         Car car2 = new Car("Smart", "forfour brabus", 2005);
-        car1.setNumberOfDoor(4);
+        car2.setNumberOfDoor(4);
+        car2.setFuelType("petrol");
         Bike bike1 = new Bike("Yamaha", "fz250", 2012);
         Bike bike2 = new Bike ("Vincent", "Black shadow", 1948);
         bike2.setHasSidecar(true);
@@ -20,27 +24,67 @@ public class GarageControls {
         garage.addToGarage(bike1);
         garage.addToGarage(bike2);
         garage.addToGarage(truck2);
+        
+        System.out.println("--------Garage-------");
+		System.out.println("___Enter a command___");
+		
+		Scanner userInput = new Scanner(System.in);
+		String command = userInput.nextLine();
+		
+		
+		//
+		switch (command){
+		
+			case "add"   :  Scanner addInfo = new Scanner(System.in);
+							System.out.println("What do you want to add to the garage? (car/bike/truck) ");
+							String addWhat = addInfo.nextLine();
+							Vehicle v = new Car(addWhat, addWhat, id);  //
+							garage.addVehicle(v, addWhat);
+							
+							break;
+			case "print" : 	garage.printGarage(); 
+							break;
+			case "clear" : 	System.out.println("clearing garage");
+	        				garage.clearGarage(); 
+	        				break;
+			case "bill"  :  System.out.println("Enter id: ");
+							Scanner userIdB = new Scanner(System.in);
+							int idNumB = userIdB.nextInt();
+							System.out.println("calculating bill of Vehicle "+ idNumB);
+						    double price = garage.calculateBill(idNumB);
+						    System.out.println( "total cost £" + price);
+						    System.out.println();
+	        				break;
+	        				
+			case "remove":	System.out.println("Enter id: ");
+							Scanner userIdR = new Scanner(System.in);
+							int idNumR = userInput.nextInt();
+							System.out.println("removing id: " + idNumR);
+	        				garage.removeFromGaragebyID(idNumR);
+	        				break;
+			default      :  System.out.println("Invalid command. Ending Garage");
+							userInput.close();
+							break;
+		
+		}
 
-        garage.printGarage();
+        
 
-        System.out.println("calculateing bill of Vehicle 3");
-        double price = garage.calculateBill(3);
-        System.out.println( "total cost £" + price);
-        System.out.println();
+        //System.out.println("calculating bill of Vehicle 3");
+        //double price = garage.calculateBill(3);
+        //System.out.println( "total cost £" + price);
+        //System.out.println();
 
-        System.out.println("removing id 3");
-        garage.removeFromGaragebyID(3);
-        garage.printGarage();
+        //System.out.println("removing id 3");
+        //garage.removeFromGaragebyID(3);
+        //garage.printGarage();
 
 
-        System.out.println("removing type car");
-        garage.removeFromGaragebyType(car1);
-        garage.printGarage();
+        //System.out.println("removing type car");
+        //garage.removeFromGaragebyType(car1);
+        //garage.printGarage();
 
-        System.out.println("clearing garage");
-        garage.clearGarage();
-
-        garage.printGarage();
+    
 
 
     }

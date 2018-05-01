@@ -3,6 +3,7 @@ package garage;
 public class Car extends Vehicle {
 	
 	private int numberOfDoor;
+	private String fuelType;
 
     protected Car(String brand, String modelName, int modelYear) {
 
@@ -28,6 +29,14 @@ public class Car extends Vehicle {
 
     public void setNumberOfDoor(int numberOfDoor) {
         this.numberOfDoor = numberOfDoor;
+    }
+    
+    public String getFuelType() {
+        return fuelType;
+    }
+
+    public void setFuelType(String fuelType) {
+        this.fuelType = fuelType;
     }
 
 }

@@ -7,7 +7,12 @@ public abstract class Vehicle {
     private int modelYear;
     private int currPrice;
     public int numberOfWheels;
-    private double repairCost;
+    
+    private int engineSize;
+    private int enginePower;
+    private String fuelType;
+    
+    //private double repairCost;
     private int ID;
 
     protected Vehicle(String brand, String modelName, int modelYear) {
@@ -61,6 +66,14 @@ public abstract class Vehicle {
 
     public void setID(int ID) {
         this.ID = ID;
+    }
+    
+    public String getFuelType() {
+        return fuelType;
+    }
+
+    public void setFuelType(String fuelType) {
+        this.fuelType = fuelType;
     }
 
 }
