@@ -7,6 +7,8 @@ public class Garage {
 	
 	 private ArrayList<Vehicle> vehicleList;
 	 private int CurrID;
+	 
+	 Scanner vehicleInfo = new Scanner(System.in);
 
 	    public Garage(int id){
 	        this.CurrID = id;
@@ -17,9 +19,9 @@ public class Garage {
 			
 			switch (command){
 			
-				case "add"   :  Scanner addInfo = new Scanner(System.in);
-								System.out.println("What do you want to add to the garage? (car/bike/truck) ");
-								String addWhat = addInfo.nextLine();
+				case "add"   :  //Scanner addInfo = new Scanner(System.in);
+								System.out.println("What do you want to add to the garage? ('car'/'bike'/'truck') ");
+								String addWhat = vehicleInfo.nextLine();
 								Vehicle v = new Car(addWhat, addWhat, this.CurrID);  //
 								this.addVehicle(v, addWhat);
 								
@@ -30,8 +32,8 @@ public class Garage {
 		        				this.clearGarage(); 
 		        				break;
 				case "bill"  :  System.out.println("Enter id: ");
-								Scanner userIdB = new Scanner(System.in);
-								int idNumB = userIdB.nextInt();
+								//Scanner userIdB = new Scanner(System.in);
+								int idNumB = vehicleInfo.nextInt();
 								System.out.println("calculating bill of Vehicle "+ idNumB);
 							    double price = this.calculateBill(idNumB);
 							    System.out.println( "total cost £" + price);
@@ -39,14 +41,14 @@ public class Garage {
 		        				break;
 		        				
 				case "remove":	System.out.println("Enter id: ");
-								Scanner userIdR = new Scanner(System.in);
-								int idNumR = userIdR.nextInt();
+								//Scanner userIdR = new Scanner(System.in);
+								int idNumR = vehicleInfo.nextInt();
 								System.out.println("removing id: " + idNumR);
 		        				this.removeFromGaragebyID(idNumR);
-		        				//this.printGarage();
+		        				this.printGarage();
 		        				break;
 				default      :  System.out.println("Invalid command. Ending Garage");
-								//Scanner.close();
+								vehicleInfo.close();
 								break;
 		
 		}
@@ -57,15 +59,15 @@ public class Garage {
 	    	
 	    	switch (what) {
 	    	
-		    	case "car"   :	Scanner carInfo = new Scanner(System.in);
+		    	case "car"   :	
 								System.out.println("Enter brand name: ");
-								String carBrand = carInfo.nextLine();
+								String carBrand = vehicleInfo.nextLine();
 								System.out.println("Enter model name: ");
-								String carModel = carInfo.nextLine();
+								String carModel = vehicleInfo.nextLine();
 								System.out.println("Enter year: ");
-								int modelYear = carInfo.nextInt();
+								int modelYear = vehicleInfo.nextInt();
 								System.out.println("Enter fuel type: ");
-								String carFuel = carInfo.nextLine();
+								String carFuel = vehicleInfo.nextLine();
 								
 		    					Car car = new Car(carBrand, carModel , modelYear);
 		    					//car.setFuelType(carFuel);
@@ -149,6 +151,7 @@ public class Garage {
 	            System.out.println();
 	        }
 	        //this.garageCommands(command);
+	        //carInfo.close();
 	    }
 
 }

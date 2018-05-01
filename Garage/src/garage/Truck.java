@@ -19,7 +19,7 @@ public class Truck extends Vehicle {
     @Override
     public double calculateBill() {
         double total = 200;
-        total += (bedLength*bedWidth * 0.24);
+        total += (bedLength*bedWidth * 0.23);
         return total;
     }
 

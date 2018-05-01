@@ -35,6 +35,11 @@ public class GarageControls {
         
         System.out.println("--------Garage-------");
 		System.out.println("___Enter a command___");
+		System.out.println("_.'add' a vehicle______");
+		System.out.println("_.'remove' a vehicle___");
+		System.out.println("_.'bill' repair cost___");
+		System.out.println("_.'print' garage_______");
+		System.out.println("_.'clear' garage_______");
 		
 		@SuppressWarnings("resource")
 		Scanner userInput = new Scanner(System.in);

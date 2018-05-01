@@ -17,7 +17,7 @@ public class Bike extends Vehicle {
     public double calculateBill() {
         double total = 50;
         if (hasSidecar){
-            total += 50;
+            total += 55;
         }
         return total;
     }
