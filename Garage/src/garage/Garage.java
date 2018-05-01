@@ -12,6 +12,46 @@ public class Garage {
 	        this.CurrID = id;
 	        vehicleList = new ArrayList<>();
 	    }
+	    
+		public void garageCommands(String command) {
+			
+			switch (command){
+			
+				case "add"   :  Scanner addInfo = new Scanner(System.in);
+								System.out.println("What do you want to add to the garage? (car/bike/truck) ");
+								String addWhat = addInfo.nextLine();
+								Vehicle v = new Car(addWhat, addWhat, this.CurrID);  //
+								this.addVehicle(v, addWhat);
+								
+								break;
+				case "print" : 	this.printGarage(); 
+								break;
+				case "clear" : 	System.out.println("clearing garage");
+		        				this.clearGarage(); 
+		        				break;
+				case "bill"  :  System.out.println("Enter id: ");
+								Scanner userIdB = new Scanner(System.in);
+								int idNumB = userIdB.nextInt();
+								System.out.println("calculating bill of Vehicle "+ idNumB);
+							    double price = this.calculateBill(idNumB);
+							    System.out.println( "total cost £" + price);
+							    System.out.println();
+		        				break;
+		        				
+				case "remove":	System.out.println("Enter id: ");
+								Scanner userIdR = new Scanner(System.in);
+								int idNumR = userIdR.nextInt();
+								System.out.println("removing id: " + idNumR);
+		        				this.removeFromGaragebyID(idNumR);
+		        				//this.printGarage();
+		        				break;
+				default      :  System.out.println("Invalid command. Ending Garage");
+								//Scanner.close();
+								break;
+		
+		}
+			
+		}
 
 	    public void addVehicle(Vehicle v, String what) {
 	    	
@@ -30,6 +70,7 @@ public class Garage {
 		    					Car car = new Car(carBrand, carModel , modelYear);
 		    					//car.setFuelType(carFuel);
 		    					this.addToGarage(car);
+		    					//this.printGarage();
 		    				  	break;
 		    	case "bike"  :	
 		    					break;
@@ -52,7 +93,7 @@ public class Garage {
 	        CurrID++;
 	        vehicleList.add(v);
 	        
-	        // this.garageCommands()
+	        //this.garageCommands();
 	    }
 
 	    public void removeFromGaragebyID(int id){
@@ -107,6 +148,7 @@ public class Garage {
 	            System.out.println("Engine power: "+v.getenginePower()+"bhp");;
 	            System.out.println();
 	        }
+	        //this.garageCommands(command);
 	    }
 
 }

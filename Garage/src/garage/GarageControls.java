@@ -36,46 +36,10 @@ public class GarageControls {
         System.out.println("--------Garage-------");
 		System.out.println("___Enter a command___");
 		
+		@SuppressWarnings("resource")
 		Scanner userInput = new Scanner(System.in);
 		String command = userInput.nextLine();
-		
-		
-		//
-		switch (command){
-		
-			case "add"   :  Scanner addInfo = new Scanner(System.in);
-							System.out.println("What do you want to add to the garage? (car/bike/truck) ");
-							String addWhat = addInfo.nextLine();
-							Vehicle v = new Car(addWhat, addWhat, id);  //
-							garage.addVehicle(v, addWhat);
-							
-							break;
-			case "print" : 	garage.printGarage(); 
-							break;
-			case "clear" : 	System.out.println("clearing garage");
-	        				garage.clearGarage(); 
-	        				break;
-			case "bill"  :  System.out.println("Enter id: ");
-							Scanner userIdB = new Scanner(System.in);
-							int idNumB = userIdB.nextInt();
-							System.out.println("calculating bill of Vehicle "+ idNumB);
-						    double price = garage.calculateBill(idNumB);
-						    System.out.println( "total cost £" + price);
-						    System.out.println();
-	        				break;
-	        				
-			case "remove":	System.out.println("Enter id: ");
-							Scanner userIdR = new Scanner(System.in);
-							int idNumR = userInput.nextInt();
-							System.out.println("removing id: " + idNumR);
-	        				garage.removeFromGaragebyID(idNumR);
-	        				break;
-			default      :  System.out.println("Invalid command. Ending Garage");
-							userInput.close();
-							break;
-		
-		}
-
+		garage.garageCommands(command);
         
 
         //System.out.println("calculating bill of Vehicle 3");
