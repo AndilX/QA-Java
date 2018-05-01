@@ -68,12 +68,30 @@ public abstract class Vehicle {
         this.ID = ID;
     }
     
+    //
+    
     public String getFuelType() {
         return fuelType;
     }
 
     public void setFuelType(String fuelType) {
         this.fuelType = fuelType;
+    }
+    
+    public int getenginePower() {
+        return enginePower;
+    }
+
+    public void setenginePower(int enginePower) {
+        this.enginePower = enginePower;
+    }
+    
+    public int getengineSize() {
+        return engineSize;
+    }
+
+    public void setengineSize(int engineSize) {
+        this.engineSize = engineSize;
     }
 
 }

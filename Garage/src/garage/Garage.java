@@ -102,6 +102,9 @@ public class Garage {
 	            System.out.println("Model: "+v.getModelName());
 	            System.out.println("Year: "+v.getModelYear());
 	            System.out.println("Fuel type: "+v.getFuelType());
+	            System.out.println("Current price £"+v.getCurrPrice());
+	            System.out.println("Engine size: "+v.getengineSize()+"cc");
+	            System.out.println("Engine power: "+v.getenginePower()+"bhp");;
 	            System.out.println();
 	        }
 	    }

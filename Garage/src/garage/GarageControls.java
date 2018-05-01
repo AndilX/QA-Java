@@ -7,14 +7,22 @@ public class GarageControls {
 	public static void main (String [] args) {
         int id =1;
         Garage garage = new Garage(id);
-        Car car1 = new Car("Smart", "roadster coupe brabus", 2006);
+        Car car1 = new Car("Smart", "Roadster Coupe Brabus", 2006);
         car1.setNumberOfDoor(2);
         car1.setFuelType("petrol");
+        car1.setCurrPrice(4231);
+        car1.setenginePower(101);
+        car1.setengineSize(698);
         Car car2 = new Car("Smart", "forfour brabus", 2005);
         car2.setNumberOfDoor(4);
         car2.setFuelType("petrol");
+        car2.setCurrPrice(3995);
+        car2.setenginePower(177);
+        car2.setengineSize(1468);
         Bike bike1 = new Bike("Yamaha", "fz250", 2012);
+        bike1.setFuelType("petrol");
         Bike bike2 = new Bike ("Vincent", "Black shadow", 1948);
+        bike2.setFuelType("petrol");
         bike2.setHasSidecar(true);
         Truck truck2 = new Truck("MAN", "2&half", 2008);
         truck2.setBedLength(2.5);
@@ -85,8 +93,6 @@ public class GarageControls {
         //garage.printGarage();
 
     
-
-
     }
 
 
