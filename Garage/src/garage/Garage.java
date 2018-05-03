@@ -69,7 +69,7 @@ public class Garage {
 								vehicleInfo.close();
 								break;
 		
-		}
+			}
 			
 		}
 
@@ -197,7 +197,7 @@ public class Garage {
 	        }
 	        outputFile.close();
 	    	
-	        System.out.println("File saved at: " + outFileLocation + " as "+ outputFile.toString());
+	        System.out.println("File saved at: " + outFileLocation);
 	    	
 	    }
 
