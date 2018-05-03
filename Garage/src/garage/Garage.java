@@ -1,5 +1,9 @@
 package garage;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -9,6 +13,8 @@ public class Garage {
 	 private int CurrID;
 	 
 	 Scanner vehicleInfo = new Scanner(System.in);
+	 
+	 String fileLocation = "C:\\Users\\Admin\\Documents\\QA-Java";
 
 	    public Garage(int id){
 	        this.CurrID = id;
@@ -27,6 +33,18 @@ public class Garage {
 								
 								break;
 				case "print" : 	this.printGarage(); 
+								break;
+				case "save" : 	System.out.println("Enter file name: ");
+								String fileName = vehicleInfo.nextLine();
+								try {
+									this.saveGarage(fileLocation,fileName);
+									
+								}catch (IOException e) {
+										// TODO Auto-generated catch block
+										e.printStackTrace();
+										System.out.println("File not found");
+										vehicleInfo.close();
+								} 
 								break;
 				case "clear" : 	System.out.println("clearing garage");
 		        				this.clearGarage(); 
@@ -152,6 +170,35 @@ public class Garage {
 	        }
 	        //this.garageCommands(command);
 	        //carInfo.close();
+	    }
+	    
+	    public void saveGarage(String outFileLocation, String nameFile) throws IOException{
+	    	//String fileName = "\\test.txt";
+	    	File file = new File(outFileLocation);
+	    	BufferedWriter outputFile = new BufferedWriter(new FileWriter(file+"\\"+nameFile+".txt"));
+	    	
+	        for (Vehicle v:vehicleList){
+	            outputFile.write("*****"+v.getID()+ "*****");
+	            outputFile.newLine();
+	            outputFile.write("Brand: "+v.getBrand());
+	            outputFile.newLine();
+	            outputFile.write("Model: "+v.getModelName());
+	            outputFile.newLine();
+	            outputFile.write("Year: "+v.getModelYear());
+	            outputFile.newLine();
+	            outputFile.write("Fuel type: "+v.getFuelType());
+	            outputFile.newLine();
+	            outputFile.write("Current price £"+v.getCurrPrice());
+	            outputFile.newLine();
+	            outputFile.write("Engine size: "+v.getengineSize()+"cc");
+	            outputFile.newLine();
+	            outputFile.write("Engine power: "+v.getenginePower()+"bhp");
+	            outputFile.newLine();
+	        }
+	        outputFile.close();
+	    	
+	        System.out.println("File saved at: " + outFileLocation + " as "+ outputFile.toString());
+	    	
 	    }
 
 }
